@@ -36,4 +36,5 @@
 ## Junior Phase
 
 ### Data Structures
-Coming Soon!
+- [Lecture: Part I](https://youtu.be/QMQWXS9_R2M)
+- [Lecture: Part II](https://youtu.be/X5UTOaMlB3U)
