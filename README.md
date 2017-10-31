@@ -35,6 +35,9 @@
 
 ## Junior Phase
 
-### Data Structures
-- [Lecture: Part I](https://youtu.be/QMQWXS9_R2M)
-- [Lecture: Part II](https://youtu.be/X5UTOaMlB3U)
+### Data Structures Part I
+- [Lecture: Part A](https://youtu.be/QMQWXS9_R2M)
+- [Lecture: Part B](https://youtu.be/X5UTOaMlB3U)
+
+### Data Structures Part II
+- [Review Video (Parts I and II)](https://www.youtube.com/watch?v=96J_nObHWe0)
