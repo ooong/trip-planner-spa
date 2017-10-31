@@ -41,4 +41,5 @@
 - [Lecture: Part B](https://youtu.be/X5UTOaMlB3U)
 
 ### Data Structures Part II
+- [Lecture: Hash Tables and Trees](https://youtu.be/_4GomLRE3Kw)
 - [Review Video (Parts I and II)](https://www.youtube.com/watch?v=96J_nObHWe0)
