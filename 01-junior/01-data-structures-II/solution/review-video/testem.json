@@ -1,0 +1,7 @@
+{
+  "framework": "jasmine2",
+  "src_files": [
+    "01_bst/*.js",
+    "02_hashtables/*.js"
+  ]
+}
