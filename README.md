@@ -36,10 +36,16 @@
 
 ## Junior Phase
 
-### Data Structures Part I
+### Data Structures 
+
+#### Part I - Queues, Stacks & Linked Lists
 - [Lecture: Part A](https://youtu.be/QMQWXS9_R2M)
 - [Lecture: Part B](https://youtu.be/X5UTOaMlB3U)
 
-### Data Structures Part II
+#### Part II - Hash Tables and Trees
 - [Lecture: Hash Tables and Trees](https://youtu.be/_4GomLRE3Kw)
 - [Review Video (Parts I and II)](https://www.youtube.com/watch?v=96J_nObHWe0)
+- [Live Q&A](https://youtu.be/rcSYvdJUs5A)
+
+### Selector.js
+- [Lecture: Intro to the DOM](https://youtu.be/fHxYNFhBSBk)
