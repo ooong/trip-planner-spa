@@ -55,3 +55,7 @@
 ### Sorting
 - [Lecture: Sorting](https://youtu.be/6qcenBDAnFA)
 - [Review Video](https://www.youtube.com/watch?v=Dz0NkaBp-FM)
+- [Review Q&A](https://youtu.be/epDhO2GsEjs)
+
+### Game of Life
+- [Lecture: Game of Life](https://youtu.be/Sw63Z9DyVuc)
