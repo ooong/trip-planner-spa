@@ -36,7 +36,7 @@
 
 ## Junior Phase
 
-### Data Structures 
+### Data Structures
 
 #### Part I - Queues, Stacks & Linked Lists
 - [Lecture: Part A](https://youtu.be/QMQWXS9_R2M)
@@ -50,3 +50,7 @@
 ### Selector.js
 - [Lecture: Intro to the DOM](https://youtu.be/fHxYNFhBSBk)
 - [Review Video](https://www.youtube.com/watch?v=WhVEZPsOP4I)
+- [Review Q&A](https://youtu.be/rhZLicyek_I)
+
+### Sorting
+- [Lecture: Sorting](https://youtu.be/6qcenBDAnFA)
