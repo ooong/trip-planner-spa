@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  font-family: arial,sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  color: burlywood;
+  text-shadow: 1px 1px black;
+}
+
+.col {
+  flex: 1;
+}
+
+li {
+  margin: 0.5em;
+  padding: 0.5em;
+  list-style-type: square;
+}
+
+.selected {
+  border: 1px solid green;
+  border-radius: 5px;
+}

@@ -49,3 +49,4 @@
 
 ### Selector.js
 - [Lecture: Intro to the DOM](https://youtu.be/fHxYNFhBSBk)
+- [Review Video](https://www.youtube.com/watch?v=WhVEZPsOP4I)
