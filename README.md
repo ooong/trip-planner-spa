@@ -54,3 +54,4 @@
 
 ### Sorting
 - [Lecture: Sorting](https://youtu.be/6qcenBDAnFA)
+- [Review Video](https://www.youtube.com/watch?v=Dz0NkaBp-FM)
