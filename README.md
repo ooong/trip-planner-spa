@@ -59,3 +59,4 @@
 
 ### Game of Life
 - [Lecture: Game of Life](https://youtu.be/Sw63Z9DyVuc)
+- [Review Video](https://www.youtube.com/playlist?list=PLx0iOsdUOUmkK8UEShdJy3RntLZjNXoj9&disable_polymer=true)
