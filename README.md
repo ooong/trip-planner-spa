@@ -40,6 +40,7 @@
 
 ### Node-Shell
 - [Lecture: Intro to Node](https://youtu.be/c0v-R2Lvb8E)
+- [Review Video](https://www.youtube.com/watch?v=v_lhkZ849jk&feature=youtu.be)
 
 ---
 
