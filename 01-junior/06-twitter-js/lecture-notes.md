@@ -2,7 +2,7 @@
 
 Whenever we're dealing with web pages, we say that our browser (i.e. Chrome) is the "client" and the process running on the computer connected to the internet that sends a web page in response to the browser's request is the "server".
 
-Remember that a server is just a process that sends data in response to certain requests. It knows how to respond to requests because the response is formatted using the HTTP protocol (and likewise, the client knows how to receive it because the response also adheres to the HTTP protocol). The computer running the "server process" exposes that process to the internet so that people can make requests to it.
+Remember that a server is just a process that sends data in response to certain requests. It knows how to respond to requests because the request is formatted using the HTTP protocol (and likewise, the client knows how to receive it because the response also adheres to the HTTP protocol). The computer running the "server process" exposes that process to the internet so that people can make requests to it.
 
 At Fullstack, we like to say that the server is somewhere far away, like "Norway". This is because when you write your own server programs, they'll be running on the same machine as your browser, but this won't be the case in real life!
 
