@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
   const breed = req.body.breed
   const puppy = {name, breed} // {name: name, breed: breed}
   puppies.push(puppy)
-  res.json(puppy)
+  res.status(201).json(puppy)
 })
 
 /*

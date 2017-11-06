@@ -148,7 +148,7 @@ app.post('/puppies', function (req, res, next) {
 
   console.log(req.body) // req.body will be an object with the request body data! Ex: {name: 'Cody', breed: 'pug'}
   createNewPuppy(req.body, function (err, newPuppy) { // this is make-believe function that create a new puppy in our database
-    res.json(newPuppy) // res.json is just like res.send, but especially for JSON data
+    res.status(201).json(newPuppy) // res.json is just like res.send, but especially for JSON data
   })
 
 })
@@ -245,3 +245,56 @@ router.delete('/:puppyId', function (req, res, next) { /* ...etc */ }) // DELETE
 
 module.exports = router
 ```
+
+# Other Important Tidbits
+
+## res.status
+
+If we don't specify a status code in our response, express assumes 200 ("Okay"). We can specify a status on our own using `res.status`. We often want to do this to specify a 201 ("Created") status code for POST requests. We can also "chain" off of the call to `.status`. Here's an example:
+
+```javascript
+router.post('/puppies', function (req, res, next) {
+  createPuppy(req.body, function (err, newPuppy) {
+    if (err) res.status(500).send('Oh noes!')
+    else res.status(201).json(newPuppy)
+  })
+})
+
+```
+
+## res.sendStatus
+
+Sometimes we only care about sending a status code back to the client. When that happens, we can just say `res.sendStatus(<status code here>)`. For example:
+
+```javascript
+router.delete('/:puppyId', function (req, res, next) {
+  deletePuppy(req.params.puppyId, function (err) {
+    if (err) res.sendStatus(500) // Oh dear! Send a 500 for "Server Error"
+    else res.sendStatus(204) // Deleted properly! 204 means "No Content"
+  })
+})
+```
+
+## res.setHeader
+
+Express is usually pretty smart and attaches any HTTP headers that we need for us, but it's useful to know how to set them ourselves. It's easy - we use `res.setHeader`, which takes the name of the header to set, and the header's value:
+
+What do you think the browser will do for these two similar requests?
+
+```javascript
+app.get('/', function (req, res, next) {
+  res.setHeader('Content-Type', 'text/html') // specifies that the response content is HTML
+  res.send('<h1>Hello world!</h1>')
+})
+```
+
+```javascript
+app.get('/', function (req, res, next) {
+  res.setHeader('Content-Type', 'text/plain') // specifies that the reponse content is plain text
+  res.send('<h1>Hello world!</h1>')
+})
+```
+
+For the first one, your browser will see that it's HTML, and it will make the text inside the `h1` tags look like an appropriate `h1` (it will be big and bold).
+
+For the second one, your browser will see that it's plain text, and it will render everything as plain ol' boring text (including the HTML tags)!
