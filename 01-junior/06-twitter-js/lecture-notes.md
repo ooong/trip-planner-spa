@@ -110,9 +110,11 @@ app.use('/pups', function (req, res, next) {
 
 For the example above, if we make a request (with any HTTP verb) to `/pups`, we'll see the following logged:
 
-`First middleware!`
-`Second middleware`
-`...50ms later!`
+```
+First middleware!
+Second middleware
+...50ms later!
+```
 
 If we make a request (with any HTTP verb) to `/`, we'll just see:
 
@@ -192,7 +194,7 @@ Whew! We've got a lot of routes in our `server.js` now! Let's organize them into
 
 Let's make a new file called "puppy-router.js":
 
-*puppy-router.js*
+##### *puppy-router.js*
 
 ```javascript
 const express = require('express')
@@ -207,7 +209,7 @@ router.delete('/puppies/:puppyId', function (req, res, next) { /* ...etc */ })
 
 Now in our `server.js`, we can tell our main `app` to "use" that router:
 
-*server.js*
+##### *server.js*
 
 ```javascript
 app.use(require('./puppy-router'))
@@ -215,7 +217,7 @@ app.use(require('./puppy-router'))
 
 Nice! To make our lives even easier, we can "mount" this router on a specific URI. In our `puppy-router.js`, we need to begin each URI portion with "/puppies". This is kind of redundant - in lieu of this, we can set the first parameter of our `app.use` to be "/puppies" like so:
 
-*server.js*
+##### *server.js*
 
 ```javascript
 app.use('/puppies', require('./puppy-router'))
@@ -223,7 +225,7 @@ app.use('/puppies', require('./puppy-router'))
 
 Now, only requests that start with "/puppies" will go to the puppy-router. This means we can shorten the URIs in that router to assume that the URI starts with "/puppies":
 
-*puppy-router.js*
+##### *puppy-router.js*
 
 ```javascript
 const express = require('express')
