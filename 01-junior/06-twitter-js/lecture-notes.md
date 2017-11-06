@@ -190,7 +190,7 @@ app.get('/puppies', function (req, res, next) { // no need to specify anything s
 
 # Separate Routers
 
-Whew! We've got a lot of routes in our `server.js` now! Let's organize them into a separate file using a `express.Router`. A `router` is just like our `app` object, but smaller. We can use it to organize our routes into separate files.
+Whew! We've got a lot of routes in our `server.js` now! Let's organize them into a separate file using a `express.Router`. A `router` object is just like our `app` object, but smaller. We can use it to organize our routes into separate files.
 
 Let's make a new file called "puppy-router.js":
 
@@ -198,13 +198,17 @@ Let's make a new file called "puppy-router.js":
 
 ```javascript
 const express = require('express')
-const router = express.Router()
+const router = express.Router() // we create a new router using express.Router()
+
+// we attach all of our .get, .post etc handlers to the router!
 
 router.get('/puppies', function (req, res, next) { /* ...etc */ })
 router.post('/puppies', function (req, res, next) { /* ...etc */ })
 router.get('/puppies/:puppyId', function (req, res, next) { /* ...etc */ })
 router.put('/puppies/:puppyId', function (req, res, next) { /* ...etc */ })
 router.delete('/puppies/:puppyId', function (req, res, next) { /* ...etc */ })
+
+module.exports = router // don't forget to export the router!
 ```
 
 Now in our `server.js`, we can tell our main `app` to "use" that router:
@@ -212,7 +216,8 @@ Now in our `server.js`, we can tell our main `app` to "use" that router:
 ##### *server.js*
 
 ```javascript
-app.use(require('./puppy-router'))
+const puppyRouter = require('./puppy-router')
+app.use(puppyRouter)
 ```
 
 Nice! To make our lives even easier, we can "mount" this router on a specific URI. In our `puppy-router.js`, we need to begin each URI portion with "/puppies". This is kind of redundant - in lieu of this, we can set the first parameter of our `app.use` to be "/puppies" like so:
@@ -220,7 +225,8 @@ Nice! To make our lives even easier, we can "mount" this router on a specific UR
 ##### *server.js*
 
 ```javascript
-app.use('/puppies', require('./puppy-router'))
+const puppyRouter = require('./puppy-router')
+app.use('/puppies', puppyRouter)
 ```
 
 Now, only requests that start with "/puppies" will go to the puppy-router. This means we can shorten the URIs in that router to assume that the URI starts with "/puppies":
@@ -236,4 +242,6 @@ router.post('/', function (req, res, next) { /* ...etc */ }) // POST /puppies
 router.get('/:puppyId', function (req, res, next) { /* ...etc */ }) // GET /puppies/:puppyId
 router.put('/:puppyId', function (req, res, next) { /* ...etc */ }) // PUT /puppies/:puppyId
 router.delete('/:puppyId', function (req, res, next) { /* ...etc */ }) // DELETE /puppies/:puppyId
+
+module.exports = router
 ```
