@@ -43,6 +43,10 @@
 - [Review Video](https://www.youtube.com/watch?v=v_lhkZ849jk&feature=youtu.be)
 - [Review Q&A](https://youtu.be/uTfiIRdiMtY)
 
+### Twitter.js
+- [Lecture: Intro to Express](https://youtu.be/og8d5shg1fk)
+- [Middleware](https://repl.it/GJHY/0)
+
 ---
 
 ## Foundations
