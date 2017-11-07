@@ -49,6 +49,14 @@
 
 ---
 
+## CS Saturday
+
+### Compilers
+
+- [Everything (lecture & review)](https://youtu.be/VEsAKLWgqTk)
+
+---
+
 ## Foundations
 
 ### Fullstack Test First Solution Videos:
