@@ -47,10 +47,20 @@
 - [Lecture: Intro to Express](https://youtu.be/og8d5shg1fk)
 - [Middleware](https://repl.it/GJHY/0)
 - [Review Video](https://www.youtube.com/watch?v=0NvankAwgHU&feature=youtu.be)
+- [Review Q&A](https://youtu.be/M7nRrVoUgdw)
 
 ### SQL
 - [Lecture - Part I: Intro to Databases](https://youtu.be/9AO11rWzHE4)
 - [Lecture - Part II: SQL](https://youtu.be/SqRdab5iV5Y)
+
+---
+
+## CS Saturday
+
+### Compilers
+
+- [Everything (lecture & review)](https://youtu.be/VEsAKLWgqTk)
+>>>>>>> da3b3e40d6b1a89062d72ee00da09dcd6d6037c9
 
 ---
 
