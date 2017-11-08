@@ -52,6 +52,10 @@
 ### SQL
 - [Lecture - Part I: Intro to Databases](https://youtu.be/9AO11rWzHE4)
 - [Lecture - Part II: SQL](https://youtu.be/SqRdab5iV5Y)
+- [Review Video](https://www.youtube.com/watch?v=meRYC47giig&feature=youtu.be)
+
+### Schema Design
+- [Lecture](https://youtu.be/DKd9-T4RZoE)
 
 ---
 
