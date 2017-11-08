@@ -46,6 +46,11 @@
 ### Twitter.js
 - [Lecture: Intro to Express](https://youtu.be/og8d5shg1fk)
 - [Middleware](https://repl.it/GJHY/0)
+- [Review Video](https://www.youtube.com/watch?v=0NvankAwgHU&feature=youtu.be)
+
+### SQL
+- [Lecture - Part I: Intro to Databases](https://youtu.be/9AO11rWzHE4)
+- [Lecture - Part II: SQL](https://youtu.be/SqRdab5iV5Y)
 
 ---
 
