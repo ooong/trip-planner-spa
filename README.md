@@ -57,6 +57,9 @@
 ### Schema Design
 - [Lecture](https://youtu.be/DKd9-T4RZoE)
 
+### Twitter.sql
+- [Lecture: Intro to Node-Postgres](https://youtu.be/d6CmwMl8eLs)
+
 ---
 
 ## CS Saturday
