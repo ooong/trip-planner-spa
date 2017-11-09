@@ -1,17 +1,1 @@
 node_modules
-
-vanilla async callback 
-
-fs.readFile(‘file.txt’, function (err, data) {…}
-);
-
-async promise 
-
-const promiseForData = fs.readFileAsync(‘file.txt’)
-
-promiseForData
-  .then((data) => { /* deal with success },
-        (err) => { /* deal with err*/ }
-  )
-
-promiseForData.then(function onSuccess (data) {…}, function onError (err) {…});
