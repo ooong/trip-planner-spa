@@ -60,6 +60,9 @@
 ### Twitter.sql
 - [Lecture: Intro to Node-Postgres](https://youtu.be/d6CmwMl8eLs)
 
+### Practical Promises
+- [Review Video](https://www.youtube.com/watch?v=fm9WQN2Nqyw&feature=youtu.be)
+
 ---
 
 ## CS Saturday
@@ -67,7 +70,6 @@
 ### Compilers
 
 - [Everything (lecture & review)](https://youtu.be/VEsAKLWgqTk)
->>>>>>> da3b3e40d6b1a89062d72ee00da09dcd6d6037c9
 
 ---
 
