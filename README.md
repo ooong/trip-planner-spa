@@ -59,6 +59,7 @@
 
 ### Twitter.sql
 - [Lecture: Intro to Node-Postgres](https://youtu.be/d6CmwMl8eLs)
+- [Live Review](https://youtu.be/SngSriX80H0)
 
 ### Practical Promises
 - [Lecture: Part 1](https://youtu.be/ULhusgep86w)
