@@ -9,7 +9,10 @@ var Page = db.define('page', {
     },
     urlTitle: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false, // db process can handle this,
+        // validate: {
+        //     isEmail: true // this is done by Sequelize
+        // }
     },
     content: {
         type: Sequelize.TEXT,
@@ -105,8 +108,25 @@ var User = db.define('user', {
 
 Page.belongsTo(User, { as: 'author' });
 
+// 1. creates author_id column in Page
+    // with belongsTo the source gets the foreignKey (originating table, Page)
+// 2. Ability to eagerly load (like a join) -- syntax is `include`
+// 3. Page instances get methods
+    // setAuthor, getAuthor, removeAuthor
+// 4. More syntax -- cascade abilities
+
+
 module.exports = {
     Page: Page,
     User: User,
     db: db
 };
+
+
+
+
+
+
+
+
+

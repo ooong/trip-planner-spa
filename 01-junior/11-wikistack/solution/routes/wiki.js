@@ -88,10 +88,10 @@ router.get('/:urlTitle', function (req, res, next) {
 
                     page.author = author;
 
-                    res.render('wikipage', {
-                        page: page
-                    });
-
+                    // res.render('wikipage', page);
+                    // in nunjucks dataValues.title
+                    res.render('wikipage', {page});
+                    // in nunjucks page.title
                 });
 
         })
@@ -129,6 +129,7 @@ router.get('/:urlTitle/similar', function (req, res, next) {
 // Editing functionality
 
 router.get('/:urlTitle/edit', function (req, res, next) {
+
     Page.findOne({
         where: {
             urlTitle: req.params.urlTitle
@@ -148,6 +149,9 @@ router.get('/:urlTitle/edit', function (req, res, next) {
 
         })
         .catch(next);
+        // .catch(function(err){
+        //     next(err)
+        // })
 });
 
 router.post('/:urlTitle/edit', function (req, res, next) {

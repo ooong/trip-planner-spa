@@ -19,11 +19,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/node_modules'));
-app.use(express.static(__dirname + '/public'));
-
 app.use('/wiki', wikiRouter);
 app.use('/users', usersRouter);
+
+app.use(express.static(__dirname + '/node_modules'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
     res.redirect('/wiki');
@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 
 app.use(function (err, req, res, next) {
     console.error(err);
-    res.status(err.status || 500).send(err.message);
+    res.status(err.status || 500).send(err.message || 'Internal Server Error');
 });
 
 module.exports = app;

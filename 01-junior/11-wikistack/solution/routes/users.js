@@ -6,7 +6,6 @@ var User = models.User;
 var Promise = require('bluebird');
 module.exports = router;
 
-
 // GET /users
 router.get('/', function (req, res, next) {
 
