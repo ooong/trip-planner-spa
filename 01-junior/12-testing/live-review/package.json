@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "mocha --watch"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,9 @@
     "sequelize": "^4.3.2"
   },
   "devDependencies": {
-    "nodemon": "^1.10.0"
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.10.0",
+    "supertest": "^3.0.0"
   }
 }

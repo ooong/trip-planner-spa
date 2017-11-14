@@ -21,6 +21,11 @@ router.get('/', function (req, res, next) {
 // POST /wiki
 router.post('/', function (req, res, next) {
 
+  console.log('---------------')
+  console.log(req.body)
+  console.log('---------------')
+
+
     User.findOrCreate({
         where: {
             email: req.body.authorEmail,
