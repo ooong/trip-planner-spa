@@ -66,6 +66,9 @@
 - [Lecture: Part 2](https://youtu.be/8TnOCJzj3c0)
 - [Review Video](https://www.youtube.com/watch?v=fm9WQN2Nqyw&feature=youtu.be)
 
+### Testing Wikistack
+- [Lecture: Testing](https://youtu.be/UEn618bHUus)
+
 ---
 
 ## CS Saturday
