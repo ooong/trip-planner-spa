@@ -65,6 +65,12 @@
 - [Lecture: Part 1](https://youtu.be/ULhusgep86w)
 - [Lecture: Part 2](https://youtu.be/8TnOCJzj3c0)
 - [Review Video](https://www.youtube.com/watch?v=fm9WQN2Nqyw&feature=youtu.be)
+- [Review Q&A](https://youtu.be/8GTJhuOh1HY)
+
+### Wikistack (Sequelize)
+- [Lecture: Intro to ORMs](https://youtu.be/6JcvYXRhKC4)
+- Review Video [Part I](https://www.youtube.com/watch?v=stTJmJ-uGtg&feature=youtu.be) & [Part II](https://www.youtube.com/watch?v=FVfyIt-NVpM)
+- [Review Q&A](https://youtu.be/jEXUddvuexo)
 
 ### Testing Wikistack
 - [Lecture: Testing](https://youtu.be/UEn618bHUus)
