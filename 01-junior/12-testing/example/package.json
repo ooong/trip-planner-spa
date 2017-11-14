@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "example",
+  "main": "models.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.22.6"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2"
+  },
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "mocha test/*.spec.js"
+  }
+}
