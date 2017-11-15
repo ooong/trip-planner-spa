@@ -84,6 +84,7 @@
 
 ### Pledge (Promise Mechanics)
 - [Lecture](https://youtu.be/F17GLAAfldI)
+- [Review Video](https://www.youtube.com/playlist?list=PLdFZ1SKgSJKqdvhkmg7KcLJdfltqdPwf3)
 
 ---
 
