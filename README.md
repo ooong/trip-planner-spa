@@ -74,6 +74,7 @@
 
 ### Testing Wikistack
 - [Lecture: Testing](https://youtu.be/UEn618bHUus)
+- [Live Review](https://youtu.be/p_NaQGL2v9M)
 
 ---
 
