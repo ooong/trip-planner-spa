@@ -15,7 +15,7 @@ When you *define* done as a parameter to one of the callbacks above, you are tel
 
 If you aren't doing anything asynchronous, then *congratulations*! You don't need to use done!
 
-```
+```javascript
 describe('totally sync', () => {
     it('does something synchronous', () => { // no need for done!
       expect(2 + 2).to.be.equal(4)
@@ -25,7 +25,7 @@ describe('totally sync', () => {
 
 In fact, if you were to take the test case above and include `done` as a parameter to the `it` callback (but don't call it), `mocha` would get mad!
 
-```
+```javascript
 describe('totally sync', () => {
     it('does something synchronous', (done) => {
       expect(2 + 2).to.be.equal(4)
@@ -40,7 +40,7 @@ Mocha is _smart_. If you include done in the callback, you need to use it!
 
 Here we go - you're doing something async now! This means you need to use `done`. Here's what that looks like:
 
-```
+```javascript
 describe('async', () => {
     it('does something async', (done) => {
       doesSomethingAsync() // note: not a real function, but it returns a promise to us!
@@ -59,7 +59,7 @@ describe('async', () => {
 
 Tests that use `supertest` are ALWAYS async. This means we always need done!
 
-```
+```javascript
 describe('GET /wiki/add', () => {
   it('responds with 200', (done) => {
       agent.get('/wiki/add').expect(200, done);
@@ -86,7 +86,7 @@ If you're using promises, there is! Instead of having to remember to invoke done
 
 If we return the promise, mocha will wait for that promise to resolve, and then it will invoke done for us! This means we can _imagine_ that mocha adds this to the end of all of our promise chains
 
-```
+```javascript
 // all of your stuff first
 .then(() => done())
 .catch(done)
@@ -94,7 +94,7 @@ If we return the promise, mocha will wait for that promise to resolve, and then 
 
 For this to work though, you *MUST* return the promise from the callback! Here's what it looks like!
 
-```
+```javascript
 describe('async', () => {
     it('does something async', () => { // no need for done!
       // this return here is very important
@@ -110,7 +110,7 @@ describe('async', () => {
 
 Because all of the methods in a supertest agent give us promises, we can do this with supertest as well!
 
-```
+```javascript
 describe('GET /wiki/add', () => {
   it('responds with 200', () => { // no done!
       // return! return! return!

@@ -2,7 +2,7 @@
 
 Time to test `findSimilar!` Let's review what `findSimilar` even does. It is an *instance method* on the Page model. This means that intances of Pages (that is, lowercase-p pages) can use it, to find other page instances that are similar to itself. The way we're defining this similarity is that a similar page will share at least one _tag_ with page that we're searching on. Here's the implementation of `findSimilar`:
 
-```
+```javascript
 Page.prototype.findSimilar = function () {
   // note: the `this` context below will refer to the
   // lowercase-p page that we invoke findSimilar on (`page.findSimilar()`)
@@ -29,7 +29,7 @@ Page.prototype.findSimilar = function () {
 
 Now that we understand how that works, let's test! Let's start by making a `describe` block and a couple of test cases (which we'll fill in presently). `findSimilar` is an instance method on the Page model, so we might organize things like so:
 
-```
+```javascript
 describe('Page model', () => {
   describe('instance methods', () => {
     describe('findSimilar', () => {
@@ -42,7 +42,7 @@ describe('Page model', () => {
 
 We're also going to want some test data to work with. Let's set it up using a `beforeEach` block!
 
-```
+```javascript
 describe('Page model', () => {
   beforeEach(() => {
     // don't forget the return!
@@ -76,7 +76,7 @@ describe('Page model', () => {
 
 This creates our fake data in our database, but because `findSimilar` is an instance method, we also want a page to work with in our specs. We can create one and put it aside like so:
 
-```
+```javascript
 describe('Page model', () => {
   let page
 
@@ -127,7 +127,7 @@ We declared the `pug` varible in the upper scope of the `describe` block, and th
 
 Now we can move on and write some test cases. Here's what those might look like:
 
-```
+```javascript
 describe('Page model', () => {
   let page
 
