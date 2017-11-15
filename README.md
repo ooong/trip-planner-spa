@@ -11,6 +11,12 @@
 
 ---
 
+## Misc
+
+- [Express Party: Kate 11/15 edition](https://youtu.be/NreU8IdSqu4)
+
+---
+
 ## Junior Phase
 
 ### Data Structures
@@ -75,6 +81,9 @@
 ### Testing Wikistack
 - [Lecture: Testing](https://youtu.be/UEn618bHUus)
 - [Live Review](https://youtu.be/p_NaQGL2v9M)
+
+### Pledge (Promise Mechanics)
+- [Lecture](https://youtu.be/F17GLAAfldI)
 
 ---
 
