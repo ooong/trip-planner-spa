@@ -1,0 +1,45 @@
+/**
+ * These styles affect what we see in the testing area
+ */
+body {
+  font-family: arial;
+  font-size: 20px;
+}
+
+.purple {background-color: #462446;}
+.red {background-color: #B05F6D;}
+.orange {background-color: #EB6B56;}
+.yellow {background-color: #FFC153;}
+.teal {background-color: #47B39D;}
+
+#parent, #parent > div {
+  border: 0px solid black;
+  display: flex;
+  height: 30vh;
+}
+
+/**
+ * Everything below is for the style controllers
+ */
+
+#controller {
+  border-top: 5px solid gray;
+  height: 50vh;
+  overflow: scroll;
+}
+
+#pen {
+  height: 50vh;
+  overflow: scroll;
+}
+
+.forms {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

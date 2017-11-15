@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+  <head>
+    <title>Boxes! Boxes Everywhere!</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="pen">
+      <div id="parent" class="purple">
+        <div class="red">Box One</div>
+        <div class="orange">Box Two</div>
+        <div class="yellow">Box Three</div>
+        <div class="teal">Box Four</div>
+      </div>
+    </div>
+
+    <div id="controller">
+
+      <div id="parent-container">
+        <h2>Parent (Dark Purple, initially not visible behind children)</h2>
+
+        <div class="forms" data-target="parent">
+          <div>
+            <h5>Box Sizing</h5>
+              <form>
+                <span>
+                  <input name="boxSizing" type="radio" value="content-box"/>Content Box
+                </span>
+                <span>
+                  <input name="boxSizing"  type="radio" value="border-box"/>Border Box
+                </span>
+              </form>
+          </div>
+          <div>
+            <h5>Position</h5>
+            <form>
+              <span>
+                <input name="position" type="radio" value="static" />Static
+              </span>
+              <span>
+                <input name="position"  type="radio" value="fixed" />Fixed
+              </span>
+              <span>
+                <input name="position" type="radio" value="relative" />Relative
+              </span>
+              <span>
+                <input name="position" type="radio" value="absolute" />Absolute
+              </span>
+            </form>
+          </div>
+          <div>
+            <h5>Display</h5>
+            <form>
+              <span>
+                <input name="display" type="radio" value="block">Block
+              </span>
+              <span>
+                <input name="display"  type="radio" value="inline-block">Inline Block
+              </span>
+              <span>
+                <input name="display" type="radio" value="inline">Inline
+              </span>
+              <span>
+                <input name="display" type="radio" value="flex">Flex
+              </span>
+            </form>
+          </div>
+          <div>
+            <h5>Box Properties</h5>
+            <small>Units of 5px</small>
+            <form>
+              <span>
+                <button name="height +" value="10">+</button>
+                <button name="height -" value="10">-</button>
+                <span>Height</span>
+              </span>
+              <span>
+                <button name="width +" value="10">+</button>
+                <button name="width -" value="10">-</button>
+                <span>Width</span>
+              </span>
+              <span>
+                <button name="padding +" value="10">+</button>
+                <button name="padding -" value="10">-</button>
+                <span>Padding</span>
+              </span>
+              <span>
+                <button name="borderWidth +" value="10">+</button>
+                <button name="borderWidth -" value="10">-</button>
+                <span>Border (Black)</span>
+              </span>
+              <span>
+                <button name="margin +" value="10">+</button>
+                <button name="margin -" value="10">-</button>
+                <span>Margin</span>
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="children-container">
+        <h2>Children</h2>
+        <div class="forms" data-target="children">
+          <div>
+            <h5>Box Sizing</h5>
+              <form>
+                <span>
+                  <input name="boxSizing" type="radio" value="content-box"/>Content Box
+                </span>
+                <span>
+                  <input name="boxSizing"  type="radio" value="border-box"/>Border Box
+                </span>
+              </form>
+          </div>
+          <div>
+            <h5>Position</h5>
+            <form>
+              <span>
+                <input name="position" type="radio" value="static" />Static
+              </span>
+              <span>
+                <input name="position"  type="radio" value="fixed" />Fixed
+              </span>
+              <span>
+                <input name="position" type="radio" value="relative" />Relative
+              </span>
+              <span>
+                <input name="position" type="radio" value="absolute" />Absolute
+              </span>
+            </form>
+          </div>
+          <div>
+            <h5>Display</h5>
+            <form>
+              <span>
+                <input name="display" type="radio" value="block">Block
+              </span>
+              <span>
+                <input name="display"  type="radio" value="inline-block">Inline Block
+              </span>
+              <span>
+                <input name="display" type="radio" value="inline">Inline
+              </span>
+              <span>
+                <input name="display" type="radio" value="flex">Flex
+              </span>
+            </form>
+          </div>
+          <div>
+            <h5>Box Properties</h5>
+            <small>Units of 5px</small>
+            <form>
+              <span>
+                <button name="height +" value="10">+</button>
+                <button name="height -" value="10">-</button>
+                <span>Height</span>
+              </span>
+              <span>
+                <button name="width +" value="10">+</button>
+                <button name="width -" value="10">-</button>
+                <span>Width</span>
+              </span>
+              <span>
+                <button name="padding +" value="10">+</button>
+                <button name="padding -" value="10">-</button>
+                <span>Padding</span>
+              </span>
+              <span>
+                <button name="borderWidth +" value="10">+</button>
+                <button name="borderWidth -" value="10">-</button>
+                <span>Border (Black)</span>
+              </span>
+              <span>
+                <button name="margin +" value="10">+</button>
+                <button name="margin -" value="10">-</button>
+                <span>Margin</span>
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+    <script src="/script.js" type="text/javascript"></script>
+  </body>

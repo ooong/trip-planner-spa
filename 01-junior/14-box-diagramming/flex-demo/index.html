@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+  <head>
+    <title>Boxes! Boxes Everywhere!</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="pen">
+      <div id="parent" class="purple">
+        <div class="red">Box 1</div>
+        <div class="orange">Box 2</div>
+        <div class="yellow">Box 3</div>
+        <div class="teal">Box 4</div>
+      </div>
+    </div>
+
+    <div id="controller">
+
+      <div id="parent-container">
+        <h2>Flex Container</h2>
+
+        <div class="forms" data-target="parent">
+          <div>
+            <h5>Flex Direction</h5>
+              <form>
+                <span>
+                  <input name="flexDirection" type="radio" value="row"/>Row
+                </span>
+                <span>
+                  <input name="flexDirection"  type="radio" value="column"/>Column
+                </span>
+                <span>
+                  <input name="flexDirection"  type="radio" value="row-reverse"/>Row Reverse
+                </span>
+                <span>
+                  <input name="flexDirection"  type="radio" value="column-reverse"/>Column Reverse
+                </span>
+              </form>
+          </div>
+          <div>
+            <h5>Flex Wrap</h5>
+              <form>
+                <span>
+                  <input name="flexWrap" type="radio" value="nowrap"/>No Wrap
+                </span>
+                <span>
+                  <input name="flexWrap" type="radio" value="wrap"/>Wrap
+                </span>
+                <span>
+                  <input name="flexWrap" type="radio" value="wrap-reverse"/>Wrap Reverse
+                </span>
+              </form>
+          </div>
+          <div>
+            <h5>Justify Content</h5>
+              <form>
+                <span>
+                  <input name="justifyContent"  type="radio" value="normal"/>Normal
+                </span>
+                <span>
+                  <input name="justifyContent" type="radio" value="space-around"/>Space Around
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="space-between"/>Space Between
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="space-evenly"/>Space Evenly
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="start"/>Start
+                </span>
+                <span>
+                  <input name="justifyContent" type="radio" value="center"/>Center
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="end"/>End
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="left"/>Left
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="right"/>Right
+                </span>
+                <span>
+                  <input name="justifyContent"  type="radio" value="flex-start"/>Flex Start
+                </span>
+                <span>
+                  <input name="justifyContent" type="radio" value="flex-end"/>Flex End
+                </span>
+              </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="children-container">
+        <h2>Flex Items</h2>
+        <div class="forms" data-target="children">
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+    <script src="/script.js" type="text/javascript"></script>
+  </body>
