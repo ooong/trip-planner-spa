@@ -1,4 +1,3 @@
-const {expect} = require('chai')
 const app = require('../app')
 const {db} = require('../models')
 const supertest = require('supertest')
@@ -6,13 +5,11 @@ const supertest = require('supertest')
 const agent = supertest(app)
 
 describe('http routes', () => {
-
   beforeEach(() => {
     return db.sync({force: true})
   })
 
   describe('POST /wiki', () => {
-
     it('sends back a 201 with the created wiki page', () => {
       return agent
         .post('/wiki')
@@ -24,12 +21,6 @@ describe('http routes', () => {
         })
         .expect(302)
         .expect('Content-Type', 'text/plain; charset=utf-8')
-        .expect((err, responseBody) => {
-          expect(typeof responseBody).to.be.equal('string')
-        })
-        .expect((err, responseBody) => {
-          expect(responseBody).to.be.equal('string')
-        })
     })
   })
 })
