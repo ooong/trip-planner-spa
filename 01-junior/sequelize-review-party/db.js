@@ -8,4 +8,11 @@ const Pug = db.define('pugs', {
   age: Sequelize.INTEGER
 })
 
+const Owner = db.define('owners', {
+  name: Sequelize.STRING
+})
+
+Pug.belongsTo(Owner)
+Owner.hasMany(Pug)
+
 module.exports = db
