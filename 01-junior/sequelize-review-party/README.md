@@ -315,6 +315,16 @@ TodoList.beforeDestroy((todoListInstance) => {
 ### Relations (aka Associations)
 [Docs](http://docs.sequelizejs.com/manual/tutorial/associations.html)
 
+Relations (also called "Associations") in Sequelize establish three things:
+
+1. For one-one or one-many relationships, it establishes a foreign key relationship between two tables (though a table could be related to itself). For many-many relationships, it establishes a join-table that contains pairs of foreign keys.
+2. It creates several special instance methods ("getAssociation" and "setAssociation") that an instance can use to search for the instances that they are related to
+3. It creates the ability to use "include" in queries to include data about related rows
+
+##### One-One Relations
+
+A one-one relation is established by pairing a `belongsTo` and a `hasOne` relation. 
+
 ---
 
 ## Querying Using Models
@@ -522,14 +532,14 @@ Finds an instance that matches the specified query. If no such instance exists, 
 In the example below, assume we do not have any existing row in our pugs table with the name 'Cody'.
 
 ```javascript
-Pug.findOrCreate({name: 'Cody'})
+Pug.findOrCreate({where: {name: 'Cody'}})
   .then(arr => { // findOrCreate is a promise for an array!
     const instance = arr[0] // the first element is the instance
     const wasCreated = arr[1] // the second element tells us if the instance was newly created
     console.log(instance) // {id: 1, name: 'Cody', etc...}
     console.log(wasCreated) // true
 
-    return Pug.findOrCreate({name: 'Cody'}) // now if we findOrCreate a second time...
+    return Pug.findOrCreate({where: {name: 'Cody'}}) // now if we findOrCreate a second time...
   })
   .then(arr => {
     const instance = arr[0]
@@ -542,14 +552,14 @@ Pug.findOrCreate({name: 'Cody'})
 It's often preferably to handle with a promise for an array using `.spread`. We can do this because the promises returned by Sequelize are "Bluebird" promises.
 
 ```javascript
-Pug.findOrCreate({name: 'Cody'})
+Pug.findOrCreate({where: {name: 'Cody'}})
   .spread((instance, wasCreated) => {/* ...etc */})
 ```
 
 With pure JavaScript, we can use array destructuring to do the same thing:
 
 ```javascript
-Pug.findOrCreate({name: 'Cody'})
+Pug.findOrCreate({where: {name: 'Cody'}})
   .spread(([instance, wasCreated]) => {/* ...etc */})
 ```
 For other examples of this pattern: http://es6-features.org/#ParameterContextMatching
