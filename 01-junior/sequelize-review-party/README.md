@@ -107,10 +107,11 @@ Pug.prototype.celebrateBirthday = function () {
 ##### Usage:
 
 ```
-const cody = Pug.build({name: 'Cody'}) // let's say `birthday` defaults to today
-
-// the instance method is invoked *on the instance*
-cody.celebrateBirthday() // Happy birthday!
+Pug.create({name: 'Cody'}) // let's say `birthday` defaults to today
+  .then(createdPug => {
+    // the instance method is invoked *on the instance*
+    cody.celebrateBirthday() // Happy birthday!
+  })
 ```
 
 
@@ -138,13 +139,107 @@ Pug.findPuppies = function () {
 
 ##### Usage
 ```javascript
-pug.find
+Pug.findPuppies()
+  .then(foundPuppies => {
+    console.log('Here are the pups: ', foundPuppies)
+  })
+  .catch(err => {
+    console.log('Oh noes!')
+    // deal with errors
+  })
 ```
 
 ### Getters and Setters
 [Docs](http://docs.sequelizejs.com/manual/tutorial/models-definition.html#getters-setters)
 
+Getters and setters are ways of customizing what happens when someone 'gets' or 'sets' a property on an instance. 'Get' and 'set' are referred to as "meta-operations" in JavaScript.
+
+```javascript
+const someObj = {foo: 'bar'}
+someObj.foo // the 'get' meta-operation
+someObj.foo = 'baz' // the 'set' meta-operation
+```
+
+Normally, we expect that 'getting' a property will simply return the value at that key in the object, and 'setting' a property will set that property in the object.
+
+'Getters' and 'setters' allow us to *override* that expected behavior.
+
+##### Definition
+
+```javascript
+const Pug = db.define('pugs', {
+  name: {
+    type: Sequelize.STRING,
+    get () { // this defines the 'getter'
+      // 'this' refers to the instance (same as an instance method)
+      // in a 'getter', you should not refer to the names of the columns directly
+      // instead, use the `this.getDataValue` method
+      return this.getDataValue('name') + ' the pug'
+      // this getter will automatically append ' the pug' to any name
+    },
+    set (valueToBeSet) { // defines the 'setter'
+      // 'this' refers to the instance (same as above)
+      // use `this.setDataValue` to actually set the value
+      this.setDataValue('name', valueToBeSet.toUpperCase())
+      // this setter will automatically set the 'name' property to be uppercased
+    }
+  }
+})
+```
+
+##### Usage
+
+```javascript
+// building or creating an instance will trigger the 'set' operation, causing the name to be capitalized
+Pug.create({name: 'cody'})
+  .then(createdPug => {
+    // when we 'get' createdPug.name, we get the capitalized 'CODY' + ' the pug' from our getter
+    console.log(createdPug.name) // CODY the pug
+
+    // this is the 'set' operation, which will capitalize the name we set
+    createdPug.name = 'murphy'
+    console.log(createdPug.name) // MURPHY the pug
+  })
+```
+
 ### Virtual Columns
+
+"Virtual" columns are columns that *do not* get saved in your database - they are calculated on the fly based on the values of other columns. They are helpful for saving space if there are values we want to use on our instances that can be easily calculated.
+
+Virtual columns always have the data type of Sequelize.VIRTUAL.
+
+Virtual columns must have *at least* one custom 'getter' or 'setter' to be useful. This does not mean that getters and setters can _only_ be used with virtual columns though (see above).
+
+Virtual columns are similar to instance methods. The difference is you access virtual columns the same way you access a regular property (via the 'get' and 'set' meta-operation), whereas instance methods are functions that you must invoke.
+
+##### Definition
+
+```javascript
+const Pug = db.define('pugs', {
+  firstName: {
+    type: Sequelize.STRING,
+  },
+  lastName: {
+    type: Sequelize.STRING
+  },
+  fullName: {
+    type: Sequelize.VIRTUAL,
+    get () {
+      return this.getDataValue('firstName') + ' ' + this.getDataValue('lastName')
+    }
+  }
+})
+```
+
+##### Usage
+
+```javascript
+Pug.create({firstName: 'Cody', lastName: 'McPug'})
+  .then(pug => {
+    console.log(pug.fullName) // "Cody McPug"
+    // however, if you look inside your database, there won't be a "fullName" column!
+  })
+```
 
 ### Hooks
 [Docs](http://docs.sequelizejs.com/manual/tutorial/hooks.html)

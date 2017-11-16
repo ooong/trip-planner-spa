@@ -1,6 +1,6 @@
-const db = require('db')
+const db = require('./db')
 
 db.sync({force: true})
   .then(() => {
-    console.log('Ready to party!')
+    db.close()
   })
