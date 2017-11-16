@@ -93,6 +93,12 @@
 ### Intro to Boxing
 - [Lecture](https://youtu.be/AflqwvzMkWc)
 
+
+### Landing Page (HTML & CSS)
+
+#### Launchpad
+- [Lecture](https://youtu.be/mkL6uLmOkHw)
+
 ---
 
 ## CS Saturday
