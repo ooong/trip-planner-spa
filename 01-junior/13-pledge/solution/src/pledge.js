@@ -59,6 +59,12 @@ $Promise.prototype.catch = function (errorCb) {
 
 $Promise.prototype._callHandlers = function () {
   const pA = this
+  console.log(`
+    call handlers was called:
+    state: ${this._state}
+    value: ${this._value}
+    num of handlers: ${this._handlerGroups.length}
+  `)
   if (pA._state === 'pending') return
   pA._handlerGroups.forEach(group => {
     const pB = group.downstreamPromise
