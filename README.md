@@ -85,6 +85,13 @@
 ### Pledge (Promise Mechanics)
 - [Lecture](https://youtu.be/F17GLAAfldI)
 - [Review Video](https://www.youtube.com/playlist?list=PLdFZ1SKgSJKqdvhkmg7KcLJdfltqdPwf3)
+- [Review Q&A](https://youtu.be/0rKk1E01SSc)
+
+### Sequelize Review
+- [Review](https://youtu.be/H3_xAKoYIP4)
+
+### Intro to Boxing
+- [Lecture](https://youtu.be/AflqwvzMkWc)
 
 
 ### Landing Page (HTML & CSS)
