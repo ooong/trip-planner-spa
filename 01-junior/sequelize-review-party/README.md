@@ -42,6 +42,9 @@ const Pug = db.define('pugs', {
   },
   toys: {
     type: Sequelize.ARRAY(Sequelize.TEXT) // an array of text strings
+  },
+  adoptedStatus: {
+    type: Sequelize.BOOLEAN
   }
 })
 ```
@@ -79,6 +82,9 @@ const Pug = db.define('pugs', {
   },
   toys: {
     type: Sequelize.ARRAY(Sequelize.TEXT)
+  },
+  adoptedStatus: {
+    type: Sequelize.BOOLEAN
   }
 })
 ```
@@ -254,33 +260,228 @@ Pug.create({firstName: 'Cody', lastName: 'McPug'})
 ### Model.findOne
 [Docs](http://docs.sequelizejs.com/manual/tutorial/models-usage.html#-find-search-for-one-specific-element-in-the-database)
 
+Finds a single instance that matches the search criteria (even if there are more than one that match the search criteria - it will return the first it finds)
+
+```javascript
+Pug.findOne({name: 'Cody'})
+.then(foundPug => {
+  console.log(foundPug)
+})
+```
+
 ### Model.findById
 [Docs](http://docs.sequelizejs.com/manual/tutorial/models-usage.html#-find-search-for-one-specific-element-in-the-database)
 
+Finds the instance with the specified id.
+
+```javascript
+Pug.findById(1)
+.then(pugWithIdOne => {
+  console.log(pugWithIdOne)
+})
+```
 ### Model.findAll
 [Docs](http://docs.sequelizejs.com/manual/tutorial/models-usage.html#-findall-search-for-multiple-elements-in-the-database)
 
+Finds all instances that match the search criteria. If no criteria are given, it returns all the instances in the table.
+
+```javascript
+Pug.findAll() // will find ALL the pugs!
+  .then(allPugs => {
+    console.log(allPugs)
+  })
+```
+
 #### "Select" Clauses ("attributes")
+[Docs](http://docs.sequelizejs.com/manual/tutorial/querying.html#attributes)
+
+You can select specific columns to be included in the returned instance by specifying an "attributes" array.
+
+```javascript
+Pug.findAll({
+  attributes: ['id', 'name', 'age'] // like saying: SELECT id, name, age from pugs;
+})
+  .then(allPugs => {
+    console.log(allPugs) // [{id: 1, name: 'Cody', age: 7}, {id: 2, name: "Murphy", age: 4}]
+    // note that all the pugs only have key-value pairs for id, name and age included
+  })
+```
 
 #### "Where" Clauses
 [Docs](http://docs.sequelizejs.com/manual/tutorial/querying.html#where)
 
+You can narrow down the search in a `findAll` by specifying a `where` clause
+
+```javascript
+Pug.findAll({
+  where: { // like saying: SELECT * from pugs WHERE age = 7;
+    age: 7,
+  }
+})
+.then(sevenYearOldPugs => {
+  console.log(sevenYearOldPugs)
+})
+```
+
+Specifying multiple options uses "AND" logic
+
+```javascript
+Pug.findAll({
+  where: { // like saying: SELECT * from pugs WHERE age = 7 AND color = 'black';
+    age: 7,
+    color: 'black'
+  }
+})
+.then(sevenYearOldBlackPugs => {
+  console.log(sevenYearOldBlackPugs)
+})
+```
+
 ##### Search Operators
 [Docs](http://docs.sequelizejs.com/manual/tutorial/querying.html#operators)
+
+We often want to specify comparisons like "greater than", "less than" in our `where` clauses.
+
+In sequelize, we need to use special properties called "operators" to do this. Here are the most common:
+
+$gt: Greater than
+$gte: Greater than or equal
+$lt: Less than
+$lte: Less than or equal
+$ne: Not equal
+$or: Use or logic for multiple properties
+
+```javascript
+// $gt, $gte, $lt, $lte
+Pug.findAll({
+  where: {
+    age: {
+      $lte: 7 // SELECT * FROM pugs WHERE age <= 7
+    }
+  }
+})
+```
+
+```javascript
+// $ne
+Pug.findAll({
+  where: {
+    age: {
+      $ne: 7 // SELECT * FROM pugs WHERE age != 7
+    }
+  }
+})
+```
+
+```javascript
+// $or
+Pug.findAll({
+  where: {
+    $or { // SELECT * FROM pugs WHERE age = 7 OR age = 6
+      age: 7,
+      age: 6
+    }
+  }
+})
+```
 
 #### Joins/Includes (aka "Eager Loading")
 [Docs](http://docs.sequelizejs.com/manual/tutorial/models-usage.html#eager-loading)
 
+```javascript
+```
+
 ### Model.findOrCreate
 [Docs](http://docs.sequelizejs.com/manual/tutorial/models-usage.html#-findorcreate-search-for-a-specific-element-or-create-it-if-not-available)
 
+Finds an instance that matches the specified query. If no such instance exists, it will create one. This method is a little funny - it returns a promise for an array! The first element of the array is the instance. The second element is a boolean (true or false), which will be true if the instance was newly created, and false if it wasn't (that is, an existing match was found).
+
+In the example below, assume we do not have any existing row in our pugs table with the name 'Cody'.
+
+```javascript
+Pug.findOrCreate({name: 'Cody'})
+  .then(arr => { // findOrCreate is a promise for an array!
+    const instance = arr[0] // the first element is the instance
+    const wasCreated = arr[1] // the second element tells us if the instance was newly created
+    console.log(instance) // {id: 1, name: 'Cody', etc...}
+    console.log(wasCreated) // true
+
+    return Pug.findOrCreate({name: 'Cody'}) // now if we findOrCreate a second time...
+  })
+  .then(arr => {
+    const instance = arr[0]
+    const wasCreated = arr[1]
+    console.log(instance) // {id: 1, name: 'Cody', etc...}
+    console.log(wasCreated) // false -> the query found an existing pug that matched the query
+  })
+```
+
+It's often preferably to handle with a promise for an array using `.spread`. We can do this because the promises returned by Sequelize are "Bluebird" promises.
+
+```javascript
+Pug.findOrCreate({name: 'Cody'})
+  .spread((instance, wasCreated) => {/* ...etc */})
+```
+
+With pure JavaScript, we can use array destructuring to do the same thing:
+
+```javascript
+Pug.findOrCreate({name: 'Cody'})
+  .spread(([instance, wasCreated]) => {/* ...etc */})
+```
+For other examples of this pattern: http://es6-features.org/#ParameterContextMatching
+
 ### Model.build
+
+Creates a temporary instance. Returns the instance. This instance is NOT yet saved to the database!
+
+```javascript
+const cody = Pug.build({name: 'Cody'})
+console.log(cody) // we can start using cody right away...but cody is NOT in our db yet
+```
 
 ### Model.create
 
+Creates and saves a new row to the database. Returns a promise for the created instance.
+
+```javascript
+Pug.create({name: 'Cody'})
+  .then(cody => {
+    // now, cody is saved in our database
+    console.log(cody)
+  })
+```
+
 ### Model.update
 
+Updates all instances that match a query.
+Takes two parameters: the first parameter contains the info you want to update. The second parameter contains the query for which instances to update.
+
+Like `findOrCreate`, it returns a promise for an array. The first element of the array is the number of rows that were affected. The second element of the array is the affected rows themselves.
+
+```javascript
+Pug.update({adoptedStatus: true}, {where: {age: 7}}) // update all pugs whose age is 7 to have an adoptedStatus of true
+  .spread((numberOfAffectedRows, affectedRows) => { // because we return a promise for an array, .spread is recommended
+    console.log(numberOfAffectedRows) // say we had 3 pugs with the age of 7. This will then be 3
+    console.log(affectedRows) // this will be an array of the three affected pugs
+  })
+```
+
 ### Model.destroy
+
+Destroys all instances that match a query.
+It returns a promise for the number of rows that were deleted.
+
+```javascript
+Pug.destroy({
+  where: {
+    age: 7 // deletes all pugs whose age is 7
+  }
+})
+  .then(numAffectedRows => {
+    console.log(numAffectedRows) // if we had 3 pugs with the age of 7, this will be 3
+  })
+```
 
 ---
 
@@ -289,5 +490,40 @@ Pug.create({firstName: 'Cody', lastName: 'McPug'})
 ### instance.save and instance.update
 [Docs](http://docs.sequelizejs.com/manual/tutorial/instances.html#updating-saving-persisting-an-instance)
 
+If we already have an instance, we can save changes with either instance.save or instance.update
+
+Both returns promises for the saved/updated instance
+
+Here's an example using save:
+```javascript
+// we already have a pug instance, which we've put in a variable called cody
+console.log(cody.age) // 7
+cody.age = 8 // we can change the age to 8 (but it isn't saved in the database yet)
+cody.save() // we can use .save to actually save to the database
+  .then(updatedCody => {
+    console.log(updatedCody.age) // 8
+  })
+```
+
+Here's another example using update:
+```javascript
+console.log(cody.age) // 7
+cody.update({age: 8})
+  .then(updatedCody => {
+    console.log(updatedCody.age) // 8
+  })
+```
+
 ### instance.destroy
 [Docs](http://docs.sequelizejs.com/manual/tutorial/instances.html#destroying-deleting-persistent-instances)
+
+If we want to remove an individual instance from the database, we can use instance.destroy.
+It returns a promise that will be resolved when the row is removed from the database.
+(The promise itself does not resolve to anything in particular though - it's always just an empty array)
+
+```javascript
+cody.destroy() // no! bye Cody!
+  .then(() => { // no need to expect the promise to resolve to any useful value
+    // now the cody row is no longer in the database
+  })
+```
