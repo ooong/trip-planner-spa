@@ -86,6 +86,12 @@
 - [Lecture](https://youtu.be/F17GLAAfldI)
 - [Review Video](https://www.youtube.com/playlist?list=PLdFZ1SKgSJKqdvhkmg7KcLJdfltqdPwf3)
 
+
+### Landing Page (HTML & CSS)
+
+#### Launchpad
+- [Lecture](https://youtu.be/mkL6uLmOkHw)
+
 ---
 
 ## CS Saturday
