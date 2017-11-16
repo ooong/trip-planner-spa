@@ -321,9 +321,127 @@ Relations (also called "Associations") in Sequelize establish three things:
 2. It creates several special instance methods ("getAssociation" and "setAssociation") that an instance can use to search for the instances that they are related to
 3. It creates the ability to use "include" in queries to include data about related rows
 
+##### Types of Relations
+
+It is possible to specify the following associations in Sequelize:
+
+* `belongsTo`
+* `hasOne`
+* `hasMany`
+* `belongsToMany`
+
+These relations can be combined to establish *one-one*, *one-many* and *many-many* relationships, like so:
+
+* `one-one`
+  * A.belongsTo(B)
+  * B.hasOne(A)
+
+* `one-many`
+  * A.belongsTo(B)
+  * B.hasMany(B)
+
+* `many-many`
+  * A.belongsToMany(B)
+  * B.belongsToMany(A)
+
 ##### One-One Relations
 
-A one-one relation is established by pairing a `belongsTo` and a `hasOne` relation. 
+A one-one relation is established by pairing a `belongsTo` and a `hasOne` relation (though the `hasOne` is often omitted).
+
+Say we have two model tables, `Pug` and an `Owner`. We might relate them like so:
+
+```javascript
+Pug.belongsTo(Owner)
+Owner.hasOne(Pug)
+```
+
+This means that a pug belongs to an owner, and an owner has one (any only one) pug.
+
+By doing this, the following three things will happen/be available to use:
+
+1. The Pug table will have a foreign key column, "ownerId", corresponding to a primary key in the Owner table.
+
+*Pugs* - includes an ownerId!
+```
+id | name | createdAt | updatedAt | ownerId
+```
+
+*Owner* - no changes!
+```
+id | name | createdAt | updatedAt
+```
+
+2. Sequelize automatically creates two instance methods for pugs, "getOwner" and "setOwner". This is because we defined `Pug.belongsTo(Owner)`. Likewise, owners get two instance methods, "getPug" and "setPug" (because we defined `Owner.hasOne(Pug)`).
+
+```javascript
+pug.getOwner() // returns a promise for the pug's owner
+
+pug.setOwner(owner) // updates the pug's ownerId to be the id of the passed-in owner, and returns a promise for the updated pug
+
+owner.getPug() // returns a promise for the owner's pug
+
+owner.setPug(pug) // updated the passed-in pug's ownerId to be the id of the owner, and returns a promise for the updated pug
+```
+
+3. Sequelize will allow us to "include" the pug's owner, or the owner's pug in queries.
+
+```javascript
+return Pug.findAll({
+  include: [{model: Owner}]
+})
+.then(pugsWithTheirOwners => {
+  console.log(pugsWithTheirOwners[0])
+  // looks like this:
+  // {
+  //   id: 1,
+  //   name: 'Cody',
+  //   ownerId: 1,
+  //   owner: {
+  //     id: 1,
+  //     name: 'Tom'
+  //   }
+  // }
+})
+```
+
+Likewise (but note that if we do omit the `Owner.hasOne(Pug)`, this is not possible):
+
+```javascript
+return Owner.findAll({
+  include: [{model: 'Pug'}]
+})
+.then(ownersWithTheirPug => {
+  console.log(ownersWithTheirPug[0])
+  // looks like this:
+  // {
+  //   id: 1,
+  //   name: 'Tom',
+  //   pug: {
+  //     id: 1,
+  //     name: 'Cody',
+  //     ownerId: 1
+  //   }
+  // }
+})
+```
+
+##### One-Many Relations
+
+A one-many relation is established by pairing a `belongsTo` and a `hasMany` relation (though like `hasOne`, the `hasMany` is sometimes omitted).
+
+Given our Pug and Owner, we might allow an owner to have multiple pugs like so:
+
+```javascript
+Pug.belongsTo(Owner)
+Owner.hasMany(Pug)
+```
+
+This means that a pug belongs to an owner, and an owner can have many pugs (also known a a [grumble](https://www.google.com/search?q=grumble+of+pugs&ie=utf-8&oe=utf-8&client=firefox-b-1-ab)).
+
+By doing this, the following three things will happen/be available to use:
+
+##### Many-Many Relations
+
 
 ---
 
