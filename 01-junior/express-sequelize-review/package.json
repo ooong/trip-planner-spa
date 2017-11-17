@@ -1,0 +1,24 @@
+{
+  "name": "express-sequelize-review",
+  "version": "1.0.0",
+  "description": "* getters and setters * virtuals * hooks * eager loading * instance.update * operators * making associations within the same table (aka the checkpoint)",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "sql-it": "node test-sequelize.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.22.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
