@@ -99,6 +99,9 @@
 #### Launchpad
 - [Lecture](https://youtu.be/mkL6uLmOkHw)
 
+#### Liftoff
+- [Lecture](https://youtu.be/TrqKiTRteDM)
+
 ---
 
 ## CS Saturday
