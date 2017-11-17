@@ -21,13 +21,13 @@ body {
 #box {
   height: 100px;
   width: 100px;
-  /* transition: all 2s ease; */
+  transition: background-color 2s ease, transform 3s ease-out;
 }
 
 #box:hover {
   background-color: #462446;
-  /* transform: rotate(7deg); */
-  /* transform: translateY(10px); */
+  transform: rotate(-15deg) translateY(20px);
+  /* transform: translateY(20px); */
 }
 
 /* mood-related classes */
@@ -35,4 +35,8 @@ body {
   background-color: #462446;
   /* transform: rotate(7deg); */
   /* transform: translateY(10px); */
+}
+
+.fine {
+  background-color: #EB6B56;
 }
