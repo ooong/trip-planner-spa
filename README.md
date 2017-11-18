@@ -110,6 +110,10 @@
 
 - [Everything (lecture & review)](https://youtu.be/VEsAKLWgqTk)
 
+### Machine Learning
+
+- [Lectures](https://youtu.be/SsT513JG_II)
+
 ---
 
 ## Foundations
