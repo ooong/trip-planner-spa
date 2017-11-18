@@ -1,3 +1,13 @@
+function intersect (arrA, arrB) {
+  const intersected = [];
+  for (const id of arrA) {
+    if (arrB.includes(id)) {
+      intersected.push(id);
+    }
+  }
+  return intersected;
+}
+
 class Plan {
   copy () {
     const copiedPlan = new Plan();
@@ -24,21 +34,47 @@ class Plan {
     }
     return selectedRow;
   }
-  setCriteria (criteria) {
-    this._criteria = criteria;
+  setCriteria (criteria, table) {
+    if (table === undefined) {
+      this._nonIndexedCriteria = criteria;
+      return this;
+    }
+    const indexedCriteria = {};
+    const nonIndexedCriteria = {};
+    for (const column of Object.keys(criteria)) {
+      if (table.hasIndexTable(column)) {
+        indexedCriteria[column] = criteria[column];
+      } else {
+        nonIndexedCriteria[column] = criteria[column];
+      }
+    }
+    this._nonIndexedCriteria = nonIndexedCriteria;
+    this._indexedCriteria = indexedCriteria
     return this;
   }
   matchesRow (row) {
-    if (!this.hasOwnProperty('_criteria')) return true;
-    return Object.keys(this._criteria).every((column) => {
+    if (!this.hasOwnProperty('_nonIndexedCriteria')) return true;
+    return Object.keys(this._nonIndexedCriteria).every((column) => {
       const val = row[column];
-      const cond = this._criteria[column];
+      const cond = this._nonIndexedCriteria[column];
       if (typeof cond === 'function') {
         return cond(val);
       } else {
         return cond === val;
       }
     });
+  }
+  getInitialRowIds (table) {
+    if (!this.hasOwnProperty('_indexedCriteria') || Object.keys(this._indexedCriteria).length === 0) {
+      return table.getRowIds();
+    }
+    const allRowIds = Object.keys(this._indexedCriteria)
+    .map((column) => {
+      const indexTable = table.getIndexTable(column);
+      const indexKey = this._indexedCriteria[column];
+      return indexTable[indexKey];
+    });
+    return allRowIds.reduce(intersect);
   }
 }
 

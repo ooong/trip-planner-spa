@@ -5,6 +5,7 @@ const path = require('path');
 class Table {
   constructor (folderPath) {
     this._folderPath = folderPath;
+    this._indexTables = {};
   }
   read (id) {
     const filename = Table.toFilename(id);
@@ -24,6 +25,25 @@ class Table {
   }
   static toId (filename) {
     return filename.slice(0, -5);
+  }
+  addIndexTable (column) {
+    const indexTable = {};
+    for (const id of this.getRowIds()) {
+      const row = this.read(id);
+      const indexKey = row[column];
+      if (!indexTable.hasOwnProperty(indexKey)) {
+        indexTable[indexKey] = [id];
+      } else {
+        indexTable[indexKey].push(id);
+      }
+    }
+    this._indexTables[column] = indexTable;
+  }
+  getIndexTable (column) {
+    return this._indexTables[column];
+  }
+  hasIndexTable (column) {
+    return this._indexTables.hasOwnProperty(column);
   }
 }
 

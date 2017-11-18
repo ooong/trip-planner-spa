@@ -54,7 +54,7 @@ class FQL {
   }
   get () {
     const rows = [];
-    const rowIds = this._table.getRowIds();
+    const rowIds = this._plan.getInitialRowIds(this._table);
     for (const id of rowIds) {
       if (!this._plan.withinLimit(rows)) break;
       const row = this._table.read(id);
@@ -77,7 +77,8 @@ class FQL {
     return new FQL(this._table, selectedPlan);
   }
   where (criteria) {
-    const wheredPlan = this._plan.copy().setCriteria(criteria);
+    console.log();
+    const wheredPlan = this._plan.copy().setCriteria(criteria, this._table);
     return new FQL(this._table, wheredPlan);
   }
 }
