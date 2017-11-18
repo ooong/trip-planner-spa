@@ -193,3 +193,37 @@ Car.findByLicense = function (searchLicense) {
 ```
 
 FQL will ask you to define instance methods and class methods. Just know that instance and class methods are object-oriented programming terms—these apply outside of just Javascript.
+
+---
+
+## Indexing
+
+An index in a database is just like one at the back of a textbook:
+
+- It stores "row values" (e.g. the year 1990) as keys
+- It stores "row indexes" as values
+- Our index is itself something we have to build and (potentially) persist
+
+We can setup indexes in various ways:
+
+- Particular to a certain column (what we're going to do), e.g. *movies by year*
+- Particular to a certain "transformation of the data", e.g. *movies that start with K*
+- Sorted by some criterion, e.g. *actors sorted by first name*
+
+Indexing is all about performance. The point is to optimize repeated queries that would otherwise require "table scanning". Instead of doing that, we can limit ourselves to a subset of row indexes beforehand.
+
+VERY POWERFUL IDEA!
+
+Downsides:
+
+- Very specific! You should make indexes thoughtfully
+- Maintenance complexity: adds time to certain operations, adds code complexity
+  - Updating rows we'll need to update any relevant index tables, too
+  - Same with deleting
+  - Same with creating
+- Space: every index adds a lot of space (equivalent to a table's size)
+
+Indexing is not worth if:
+
+- Data is already sorted / quick to access for a given query
+- Non-diverse data for a column, e.g. half of the rows have one value the other half have another value
