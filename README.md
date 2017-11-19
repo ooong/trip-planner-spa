@@ -93,6 +93,9 @@
 ### Intro to Boxing
 - [Lecture](https://youtu.be/AflqwvzMkWc)
 
+### Express/Sequelize Review
+- [Express](https://youtu.be/v4BhZgMiJX4)
+- [Sequelize](https://youtu.be/s7iuj-Ayvb4)
 
 ### Landing Page (HTML & CSS)
 
