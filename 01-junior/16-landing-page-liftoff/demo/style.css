@@ -1,0 +1,42 @@
+/* global styles */
+body {
+  font-family: arial;
+}
+
+/* utility color classes */
+.purple {background-color: #462446;}
+.red {background-color: #B05F6D;}
+.orange {background-color: #EB6B56;}
+.yellow {background-color: #FFC153;}
+.teal {background-color: #47B39D;}
+
+/* utility layout classes */
+.flex {display: flex;}
+.column {flex-direction: column;}
+.center {justify-content: center;}
+.fullscreen {height: 100vh;}
+.m1 {margin: 1em;}
+
+/* id */
+#box {
+  height: 100px;
+  width: 100px;
+  transition: background-color 2s ease, transform 3s ease-out;
+}
+
+#box:hover {
+  background-color: #462446;
+  transform: rotate(-15deg) translateY(20px);
+  /* transform: translateY(20px); */
+}
+
+/* mood-related classes */
+.sad {
+  background-color: #462446;
+  /* transform: rotate(7deg); */
+  /* transform: translateY(10px); */
+}
+
+.fine {
+  background-color: #EB6B56;
+}
