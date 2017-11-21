@@ -93,14 +93,23 @@
 ### Intro to Boxing
 - [Lecture](https://youtu.be/AflqwvzMkWc)
 
+### Express/Sequelize Review
+- [Express](https://youtu.be/v4BhZgMiJX4)
+- [Sequelize](https://youtu.be/s7iuj-Ayvb4)
 
 ### Landing Page (HTML & CSS)
 
 #### Launchpad
 - [Lecture](https://youtu.be/mkL6uLmOkHw)
+- [Review](https://youtu.be/tRbrNa_L1sM)
 
 #### Liftoff
 - [Lecture](https://youtu.be/TrqKiTRteDM)
+
+### Trip Planner
+
+#### Modular Front-End (Webpack)
+- [Lecture](https://youtu.be/LvwSLGdzobU)
 
 ---
 
