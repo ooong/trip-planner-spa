@@ -123,6 +123,13 @@
 
 - [Lectures](https://youtu.be/SsT513JG_II)
 
+### FQL
+
+- [Lecture: Intro](https://youtu.be/oOl9310SywU)
+- [Review: Parts I and II](https://youtu.be/PUGHKWuBkP8)
+- [Lecture: Indexing](https://youtu.be/JoE23uPIbNc)
+- [Review: Part III](https://youtu.be/YCQYbB1UMd0)
+
 ---
 
 ## Foundations
