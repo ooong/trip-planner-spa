@@ -101,6 +101,7 @@
 
 #### Launchpad
 - [Lecture](https://youtu.be/mkL6uLmOkHw)
+- [Review](https://youtu.be/tRbrNa_L1sM)
 
 #### Liftoff
 - [Lecture](https://youtu.be/TrqKiTRteDM)
