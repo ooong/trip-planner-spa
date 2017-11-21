@@ -106,6 +106,11 @@
 #### Liftoff
 - [Lecture](https://youtu.be/TrqKiTRteDM)
 
+### Trip Planner
+
+#### Modular Front-End (Webpack)
+- [Lecture](https://youtu.be/LvwSLGdzobU)
+
 ---
 
 ## CS Saturday
